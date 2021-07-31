@@ -1,75 +1,76 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>React App</title>
-</head>
-
-<body>
-    <nav class="navbar navbar-dark bg-dark">
+  </head>
+  <body>
+    <!-- header -->
+    <section id="header">
+      <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/logo-ucamp-dark.png" alt="" width="30" height="24" class="d-inline-block align-text-top"> Proyecto No. 2: Desarrollo de Software CRUD
-            </a>
-            <form class="d-flex">
-                <button class="btn btn-outline-success" type="submit">Proyecto No. 2: Desarrollo de Software CRUD</button>
-            </form>
+          <a class="navbar-brand" href="#">
+            <img src="logo-ucamp-dark.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            Proyecto No. 2: Desarrollo de Software CRUD
+          </a>
+          <form class="d-flex">
+          <button class="btn btn-outline-success" type="submit">Proyecto No. 2: ALAN JOSE ABARCA VELAZQUEZ</button>
+        </form>
         </div>
-    </nav>
+      </nav>
+    </section>
 
     <div class="row justify-content-center">
-        <div class="col-auto mt-5">
-            <div class="accordion " id="accordionPanelsStayOpenExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      <div class="col-auto mt-5">
+        <div class="accordion " id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                 <h1>¿Qué es un CRUD?</h1>
               </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                        <div class="accordion-body">
-                            <strong>Es un proceso de software que nos permite manipular datos, utilizando la persistencia.<br>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+              <div class="accordion-body">
+                <strong>Es un proceso de software que nos permite manipular datos, utilizando la persistencia.<br>
                   A continuación, verás un ejemplo de un listado de tareas, el cual te permitirá agregar, modificar, borrar y leer pendientes que tengas.<br>
-                  Ten la libertad de usarlo a tu conveniencia.</strong>
-                        </div>
-                    </div>
-                </div>
+                  Ten la libertad de usarlo a tu conveniencia.</strong> 
+              </div>
             </div>
-            <div class="mb-5">
-            </div>
-
-            <form id="Formulario">
-                <div class="mb-5">
-                    <label class="form-label">Tarea</label>
-                    <input type="text" class="form-control" id="actividad" aria-describedby="Tarea">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Descripción</label>
-                    <input type="text" class="form-control" id="descripcion">
-                </div>
-                <button type="submit" class="btn btn-primary" id="agregar">Agregar tarea</button>
-            </form>
-
-            <div id="listaActividades" class="mt-4">
-                <div class="alert alert-primary" role="alert">
-                    <b>Aún no has creado tareas.</b>
-
-                    <span class="float-right" style="float: right;"> 
+          </div>
+        </div>
+        <div class="mb-5">
+        </div>
+        <!-- formulario -->
+        <form id="Formulario">
+          <div class="mb-5">
+            <label  class="form-label">Tarea</label>
+            <input type="text" class="form-control" id="actividad" aria-describedby="Tarea">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion">
+          </div>
+          <button type="submit" class="btn btn-primary" id="agregar">Agregar tarea</button>
+        </form>
+        <!-- leer elementos -->
+        <div id="listaActividades" class="mt-4">
+          <div class="alert alert-primary" role="alert">
+            <b>Aún no has creado tareas.</b>
+            <!-- modificar y elimnar -->
+             <span class="float-right" style="float: right;"> 
               <button type="submit" class="btn btn-primary">Eliminar</button> 
               <button type="submit" class="btn btn-primary">Editar</button> 
-             </span>
-                </div>
-            </div>
+             </span> 
+          </div>
         </div>
+      </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="index.js"></script>
-</body>
-
+  </body>
+  
 </html>
