@@ -1,23 +1,35 @@
 //console.log('funciona');
 //variables
+let i;
+let indexArray2;
 const formularioUI = document.querySelector('#Formulario');
 const listaActividadesUI = document.getElementById('listaActividades');
 let arrayActividades = [];
 
 //funciones
 const CrearItem = (actividad, descripcion) => {
-    let item = {
-        actividad: actividad,
-        descripcion: descripcion
+    //si actualiza
+    if (document.querySelector("#agregar").textContent === "Actualizar") {
+        console.log("actual")
+        arrayActividades[indexArray2].actividad = document.querySelector("#actividad").value
+        arrayActividades[indexArray2].descripcion = document.querySelector("#descripcion").value
+        GuardarDB();
+    } else {
+        //si es nuevo
+        let item = {
+            actividad: actividad,
+            descripcion: descripcion
+        }
+        arrayActividades.push(item);
+        return item;
     }
-    arrayActividades.push(item);
-    return item;
 }
+
 const GuardarDB = () => {
     localStorage.setItem('rutina', JSON.stringify(arrayActividades));
     MostrarDB();
-
 }
+
 const MostrarDB = () => {
     listaActividadesUI.innerHTML = '';
     arrayActividades = JSON.parse(localStorage.getItem('rutina'));
@@ -26,7 +38,9 @@ const MostrarDB = () => {
         arrayActividades = [];
     } else {
         arrayActividades.forEach(element => {
+
             listaActividadesUI.innerHTML += `<div class="alert alert-primary" role="alert"> <b>${element.actividad}</b>${element.descripcion} <span class="float-right" style="float: right;"> <button type="submit" class="btn btn-primary">Eliminar</button> <button type="submit" class="btn btn-primary">Editar</button> </span> </div>`
+
         });
     }
 }
@@ -38,12 +52,16 @@ const EliminarDB = (actividad) => {
             indexArray = index;
         }
     });
-
     arrayActividades.splice(indexArray, 1);
     GuardarDB();
 }
 
-
+const EditarDB = (actividad) => {
+    indexArray2 = arrayActividades.findIndex((elemento) => elemento.actividad === actividad);
+    document.querySelector("#actividad").value = arrayActividades[indexArray2].actividad;
+    document.querySelector("#descripcion").value = arrayActividades[indexArray2].descripcion;
+    document.querySelector("#agregar").textContent = "Actualizar"
+}
 
 //eventos
 formularioUI.addEventListener('submit', (e) => {
@@ -54,6 +72,7 @@ formularioUI.addEventListener('submit', (e) => {
     GuardarDB();
     formularioUI.reset();
 });
+
 ///
 document.addEventListener('DOMContentLoaded', MostrarDB);
 ////
@@ -61,14 +80,15 @@ listaActividadesUI.addEventListener('click', (e) => {
     e.preventDefault();
     //let texto = e.path[2].childNodes[1].innerHTML;
     //console.log(texto);
-    //console.log(e.target.innerHTML);
     if (e.target.innerHTML === 'Editar' || e.target.innerHTML === 'Eliminar') {
         let texto = e.path[2].childNodes[1].innerHTML;
-        //console.log(texto);
+        //let descripcion = e.path[2].childNodes[5].innerHTML;
+        //console.log(descripcion);
         if (e.target.innerHTML === 'Eliminar') {
             EliminarDB(texto);
         }
-
+        if (e.target.innerHTML === 'Editar') {
+            EditarDB(texto);
+        }
     }
-
 });
